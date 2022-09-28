@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300&display=swap');
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    background-image: url('./images/background.jpg');
+    background-color: #131313;
+    background-repeat: no-repeat;
+    /* background-size: 100%; */
+    background-size: cover;
+    padding: 6% 6% 0 6%;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-column-gap: 1rem;
+    grid-template-rows: 1fr auto;
+    grid-template-areas:
+        "header header"
+        "footer footer";
+
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 22px;
+
+    min-height: 100%;
+}
+
+/* HEADER */
+
+h1 {
+    font-family: 'Bebas Neue', cursive;
+    color: white;
+    margin: 0;
+    width: fit-content;
+    font-weight: 400;
+    line-height: 90%;
+}
+
+.heading-rock {
+    background: linear-gradient(180deg, #B08339 0%, #FFFFFF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 10.6rem;
+}
+
+.heading-paper {
+    color: #FFFFFF;
+    font-size: 9rem;
+}
+
+.heading-scissors {
+    background: linear-gradient(180deg, #FFFFFF 0%, #E7B263 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 6rem;
+}
+
+header>p {
+    max-width: 350px;
+    font-style: italic;
+}
+
+/* MAIN */
+h2 {
+    font-size: 3rem;
+    font-weight: normal;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+main>p,
+.scores>p {
+    font-size: 2rem;
+    text-align: center;
+    margin: 0;
+}
+
+/* PLAY AREA */
+.output {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.output>img {
+    max-width: 400px;
+}
+
+.user.play {
+    justify-self: end;
+}
+
+.pc.play {
+    transform: scaleX(-1);
+    filter: grayscale(100%);
+}
+
+.scores {
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.pulse1 {
+    animation: pulse 3s infinite alternate;
+}
+
+.pulse2 {
+    animation: pulse 3s infinite 0.75s alternate;
+}
+
+.pulse3 {
+    animation: pulse 3s infinite 1.5s alternate;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.95);
+    }
+
+    100% {
+        transform: scale(1.05);
+    }
+}
+
+.card:active {
+    animation: push 0.5s;
+}
+
+@keyframes push {
+    0% {
+        box-shadow: 0 0 0 0px #E7B263;
+    }
+}
+
+/* SCORE */
+.scores {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/* USER INPUT */
+.user-input {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.card>img {
+    max-width: 90%;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 10px 10px 0;
+    width: 100px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50px;
+}
+
+.card:hover {
+    transform: scale(1.1);
+    border-color: #E7B263;
+    box-shadow: 0 0 1.5rem #E7B263;
+}
+
+/* FOOTER */
+footer {
+    grid-area: footer;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: space-between;
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 2%;
+    color: grey;
+}
+
+a {
+    text-decoration: none;
+    color: grey;
+}
+
+#Github-logo:hover {
+    transform: rotate(360deg);
+    transition: all 0.5s ease-in-out;
+}
+
+.attr {
+    color: grey;
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    margin: auto;
+}

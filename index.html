@@ -6,10 +6,55 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
-    <script src="./rps.js"></script>
+    <script src="./rps.js" defer></script>
+    <link rel="icon" type="image/ico" href="./favicon.ico">
+    <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
+    <header>
+        <h1 class="heading-rock">ROCK</h1>
+        <h1 class="heading-paper">PAPER</h1>
+        <h1 class="heading-scissors">SCISSORS</h1>
+        <p>"Let us settle this like adults - rock, paper, scissors!"</p>
+    </header>
+    <main>
+        <h2 id="result">- Best of 5 -</h2>
+        <p id="reason">Rock draws with rock</p>
+        <section class="play-area">
+            <div class="output">
+                <img class="user play rotate" rel="user choice" src="./images/hands/rock-left.png">
+                <img class="pc play" rel="pc choice" src="./images/hands/rock-left.png">
+            </div>
+            <div class="scores">
+                <p id="player-score">Player: 0</p>
+                <p> - </p>
+                <p id="pc-score">0 : Computer</p>
+            </div>
+            <div class="user-input">
+                <div name="Rock" class="card pulse1">
+                    <img name="Rock" rel="Rock choice" src="./images/hands/rock.png">
+                </div>
+                <div name="Paper" class="card pulse2">
+                    <img name="Paper" rel="Paper choice" src="./images/hands/paper.png">
+                </div>
+                <div name="Scissors" class="card pulse3">
+                    <img name="Scissors" rel="Scissors choice" src="./images/hands/scissors.png">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="attr">
+            <a href="https://github.com/amyburgh/Rock-Paper_Scissors/README.md">Attributions</a>
+        </div>
+        <div>Copyright &#169; amyburgh</div>
+        <div class="Github-link">
+            <a href="https://github.com/amyburgh/Rock-Paper_Scissors"><img id="Github-logo" rel="Github logo"
+                    src="./images/GitHub-Mark-Light-32px.png"></a>
+        </div>
+    </footer>
 
 </body>
 
