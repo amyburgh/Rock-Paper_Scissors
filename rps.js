@@ -1,78 +1,87 @@
 // Rock Paper Scissors Game
-
+const DEFAULT_MSG = "- Best of 5 -";
 const CHOICES = ["Rock", "Paper", "Scissors"];
+let SCORE = { user: 0, pc: 0 };
+const HANDS = {
+    Rock: './images/hands/rock-left.png',
+    Paper: './images/hands/paper.png',
+    Scissors: './images/hands/scissors.png'
+};
+const MSG = {
+    you: './images/you.png',
+    win: './images/win.png',
+    loose: './images/loose.png'
+};
+
+// START HERE
+const select = document.querySelectorAll('.card');
+select.forEach(choice => choice.addEventListener('click', play));
 
 const randomChoice = () => CHOICES[Math.floor(Math.random() * 3)];
-const userInput = () => prompt(`
-            Make your choice:
-            1. Rock
-            2. Paper
-            3. Scissors
-        `);
 
-// Clean User Input
-function cleanUserInput(userInput) {
-    if (parseInt(userInput) == 1 || userInput.toUpperCase() == "ROCK" || userInput.toUpperCase() == "R")
-        return "Rock";
-    else if (parseInt(userInput) == 2 || userInput.toUpperCase() == "PAPER" || userInput.toUpperCase() == "P")
-        return "Paper";
-    else if (parseInt(userInput) == 3 || userInput.toUpperCase() == "SCISSORS" || userInput.toUpperCase() == "S")
-        return "Scissors";
-}
-
-function playRPS(user, pc, score) {
-    console.log("User: ", user);
-    console.log("PC: ", pc);
+function playRPS(user, pc) {
     let result = "";
 
     if (user == pc) {
         result = 'DRAW'
-        return `It's a ${result}!`;
     }
     else if (user == "Rock" && pc == "Scissors"
         || user == "Paper" && pc == "Rock" ||
         user == "Scissors" && pc == "Paper") {
         result = "WIN";
-        score.user++;
+        SCORE.user++;
     } else {
         result = "LOOSE";
-        score.pc++;
+        SCORE.pc++;
     }
 
-    return result == "WIN" ? `You ${result}! ${user} beats ${pc}` :
-        `You ${result}! ${user} beats ${pc}`;
+    return result;
 }
 
-function play() {
-    let score = { user: 0, pc: 0 };
+function updateResults(val, user, pc) {
+    const result = document.querySelector('#result');
+    const reason = document.querySelector('#reason');
 
-    console.log("=== Best of 5 ===");
-
-    while (score.user < 3 && score.pc < 3) {
-        const pcChoice = randomChoice();
-        let userChoice;
-        do {
-            userChoice = cleanUserInput(userInput());
-
-            if (!userChoice) {
-                console.log("Error: user input")
-            }
-        } while (userChoice == undefined);
-
-        const string = playRPS(userChoice, pcChoice, score);
-
-        console.log(string);
-        console.log(score);
+    if (val === "DRAW") {
+        result.textContent = `It's a ${val}`;
+        reason.textContent = `${user} draws with ${pc}`
     }
-
-    console.log(score.user > score.pc ? "YOU BEAT THE PC!" : "PC BEAT YOU!");
-
-    repeat = parseInt(prompt(`Pay Again?
-        1: No
-        2: Yes`)) - 1;
-    if (repeat == true) {
-        play();
+    else {
+        result.textContent = `You ${val}!`;
+        reason.textContent = val == "WIN" ? `${user} beats ${pc}` :
+            `${pc} beats ${user}`;
     }
 }
 
-play();
+function updateHands(user, pc) {
+    document.querySelector('.user').src = HANDS[user];
+    document.querySelector('.pc').src = HANDS[pc];
+}
+
+function updateScore() {
+    document.querySelector('#player-score').textContent = `Player: ${SCORE.user}`;
+    document.querySelector('#pc-score').textContent = `${SCORE.pc} :Computer`;
+}
+
+function checkScore() {
+    if (SCORE.user < 5 && SCORE.pc < 5)
+        return;
+    document.querySelector('.user').src = MSG.you;
+    if (SCORE.user === 5)
+        document.querySelector('.pc').src = MSG.win;
+    else if (SCORE.pc === 5)
+        document.querySelector('.pc').src = MSG.loose;
+    SCORE = { user: 0, pc: 0 };
+}
+
+function play(e) {
+    const pcChoice = randomChoice();
+    const userChoice = e.target.name;
+
+    const string = playRPS(userChoice, pcChoice);
+
+    updateResults(string, userChoice, pcChoice);
+    updateHands(userChoice, pcChoice);
+    updateScore();
+    checkScore();
+}

@@ -1,5 +1,14 @@
-Attributions:
+# Rock Paper Scissors
 
-<!-- <a href="https://www.freepik.com/free-vector/rock-paper-scissors-banner_21002766.htm#query=rock%20paper%20scissors&position=2&from_view=keyword">Image by upklyak</a> on Freepik -->
+"Let us settle this like adults - rock, paper, scissors!"
 
-<a href="https://www.freepik.com/free-vector/watercolor-galaxy-background_21727335.htm#query=galaxy%20background&position=40&from_view=search">Image by coolvector</a> on Freepik
+> **Note**: Game not scaled for mobile size screens.
+
+---
+
+ ![Site preview](./images/screenCapture.jpg)
+
+#### Attributions:
+- Illustrations by <a href="https://www.freepik.com/free-vector/rock-paper-scissors-banner_21002766.htm#query=rock%20paper%20scissors&position=2&from_view=keyword">upklyak</a>
+
+- Background image by <a href="https://www.freepik.com/free-vector/gradient-black-backgrounds-with-golden-frames_19852263.htm#query=black%20abstract&position=3&from_view=keyword">Freepik</a>
