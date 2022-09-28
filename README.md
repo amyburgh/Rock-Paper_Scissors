@@ -6,7 +6,8 @@
 
 ---
 
- ![Site preview](./images/screenCapture.jpg)
+ [![Site preview](./images/screenCapture.jpg)](https://amyburgh.github.io/Rock-Paper_Scissors/)
+ <em>Click image to play<em>
 
 #### Attributions:
 - Illustrations by <a href="https://www.freepik.com/free-vector/rock-paper-scissors-banner_21002766.htm#query=rock%20paper%20scissors&position=2&from_view=keyword">upklyak</a>
